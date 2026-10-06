@@ -63,6 +63,7 @@ jobs:
           GODOT_ANDROID_KEYSTORE_DEBUG_USER: androiddebugkey
           GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD: android
         run: |
+          export GODOT_ANDROID_KEYSTORE_DEBUG_PATH="$HOME/.android/debug.keystore"
           mkdir -p build/web build/android
           godot --headless --path . --export-release Web build/web/index.html
           godot --headless --path . --export-debug Android build/android/night-heist-preview.apk

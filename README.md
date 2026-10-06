@@ -35,7 +35,7 @@ git tag v0.1.0
 git push origin v0.1.0
 ```
 
-Não há build/deploy remoto validado até executar o workflow no repositório real.
+Exportações Web e Android, importação e smoke test foram executados com sucesso em GitHub Actions no run #8; a publicação é acompanhada na aba Actions. Para publicar manualmente a versão de VERSION, selecione Run workflow em main e marque Publish a preview release after builds pass. Os eventos push e manual possuem filas separadas, sem cancelamento de execuções em andamento.
 
 ## Referências técnicas
 

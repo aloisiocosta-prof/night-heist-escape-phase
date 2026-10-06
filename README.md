@@ -1,46 +1,42 @@
 # Night Heist: Escape Phase
 
-Esqueleto Godot 4.4.1 em GDScript nativo, baseado no GDD versão 0.2 fornecido. A cena inicial contém apresentação e botão touch; o gameplay está pendente em [BACKLOG](docs/BACKLOG.md).
+MVP jogável de stealth/platformer 2D em Godot 4.4.1 e GDScript nativo, baseado no GDD versão 0.2.
 
-## Desenvolvimento
+## Jogar
 
-Abra `project.godot` com Godot 4.4.1 e execute F6/F5. Use o renderizador Compatibility. Versão fixada para reprodutibilidade, sem alegação de ser a versão mais recente.
+[Versão Web](https://aloisiocosta-prof.github.io/night-heist-escape-phase/) · [Downloads Android / Releases](https://github.com/aloisiocosta-prof/night-heist-escape-phase/releases)
+
+Invada quatro pavimentos, abra portas por skill checks, evite câmeras e lasers, use switches e terminal, saqueie o cofre e retorne ao spawn antes dos 180 segundos. Os alarmes descontam tempo. Cofre coletado sem retorno não vence.
+
+Controles: A/D ou ←/→ mover; W/S ou ↑/↓ escadas; Espaço pular; Shift correr; C agachar; E interagir/confirmar; Esc pausa; R reiniciar. Botões touch aparecem na borda inferior. SOM alterna áudio.
+
+## Desenvolvimento e testes
+
+Abra `project.godot` em Godot 4.4.1. Renderizador Compatibility, sem addons. Arte e áudio originais; consulte [design](docs/DESIGN.md) e [assets](docs/ASSETS.md).
+
+```bash
+godot --headless --path . --editor --import
+godot --headless --path . --script tests/run_tests.gd
+godot --headless --path . --quit-after 60
+```
+
+Testes validam regras de vitória/timeout, penalidade de alarme, bloqueio físico das portas, skill checks, escadas, detecção das câmeras, crouch sob laser e terminal. Não substituem playtest Android em aparelho real.
 
 ## CI/CD
 
-- Pull requests: importação, smoke test headless e exportações Web/APK.
-- Push em main: mesmas verificações e deploy Web no GitHub Pages.
-- Tags `v*`: mesmos builds; GitHub Release de prévia com APK debug assinado, ZIP Web e SHA-256.
-- Execução manual: builds; deploy apenas se a referência selecionada for main.
+- PR: importação, regressões do gameplay, smoke test, Web e APK.
+- Main: mesmas verificações + deploy GitHub Pages.
+- Tag v*: Release de prévia com APK, Web ZIP e SHA256SUMS.
+- Manual em main: marque Publish a preview release after builds pass para publicar a versão de `VERSION` após testes/builds.
 
-Antes do primeiro deploy, em Settings → Pages → Build and deployment selecione **GitHub Actions**. O workflow requer Actions habilitado e permissão de publicação Pages; a criação de Releases usa `contents: write` apenas no job correspondente.
+Pages usa GitHub Actions. A exportação Web precisa de WebGL2. APK ARMv7/ARM64 com SDK 34 e Java 17; é assinado com certificado debug temporário para testes. Instalar builds assinados com certificados diferentes pode exigir desinstalar o anterior. Distribuição de produção requer keystore durável e version/code crescente; Google Play requer AAB e assinatura de produção.
 
-Web: single-thread, WebGL 2/Compatibility; não é Flutter/WasmGC. Android: APK ARMv7/ARM64, OpenJDK 17, SDK 34. Preview utiliza certificado debug gerado em cada execução; reinstalações entre builds podem exigir desinstalar a versão anterior. Para distribuição de produção, configure keystore durável protegido, use export-release e defina version/code crescente. O APK atual é para testes e não publicação Google Play.
+O viewport 1280×720 preserva a proporção, orientado a landscape. A janela do navegador e o APK usam o mesmo gameplay. Configurações de tempo/penalidade não especificadas no GDD estão registradas no documento de design.
 
-## Criar e publicar no GitHub
+## Referências
 
-Com GitHub CLI autenticado, dentro desta pasta:
-
-```bash
-git init -b main
-git add .
-git commit -m "Initialize Godot project and Android/Web CI/CD"
-gh repo create aloisiocosta-prof/night-heist-escape-phase --public --source=. --remote=origin --push
-```
-
-Habilite Pages conforme acima e execute novamente o workflow se o primeiro deploy ocorreu antes dessa configuração. Após verificar os jobs, publique uma versão:
-
-```bash
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-Exportações Web e Android, importação e smoke test foram executados com sucesso em GitHub Actions no run #8; a publicação é acompanhada na aba Actions. Para publicar manualmente a versão de VERSION, selecione Run workflow em main e marque Publish a preview release after builds pass. Os eventos push e manual possuem filas separadas, sem cancelamento de execuções em andamento.
-
-## Referências técnicas
-
-- Godot Engine. Exporting for Web, versão 4.4: https://docs.godotengine.org/en/4.4/tutorials/export/exporting_for_web.html
-- Godot Engine. Exporting for Android, versão 4.4: https://docs.godotengine.org/en/4.4/tutorials/export/exporting_for_android.html
-- GitHub. Custom workflows with GitHub Pages: https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
-
-O GDD é a especificação do produto; as fontes técnicas documentam as exportações e a implantação, não constituem evidência acadêmica.
+- GDD Night Heist: Escape Phase V2, versão 0.2, documento fornecido pelo usuário.
+- [Godot CharacterBody2D](https://docs.godotengine.org/en/4.4/classes/class_characterbody2d.html)
+- [Godot AudioStreamWAV](https://docs.godotengine.org/en/4.4/classes/class_audiostreamwav.html)
+- [Godot Web export](https://docs.godotengine.org/en/4.4/tutorials/export/exporting_for_web.html)
+- [Godot Android export](https://docs.godotengine.org/en/4.4/tutorials/export/exporting_for_android.html)

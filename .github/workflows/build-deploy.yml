@@ -52,6 +52,8 @@ jobs:
           set -o pipefail
           godot --headless --path . --editor --import 2>&1 | tee "$RUNNER_TEMP/import.log"
           if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' "$RUNNER_TEMP/import.log"; then exit 1; fi
+      - name: Gameplay regression tests
+        run: godot --headless --path . --script tests/run_tests.gd
       - name: Smoke test scene
         shell: bash
         run: |
@@ -128,4 +130,4 @@ jobs:
             gh release upload "$RELEASE_TAG" release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS --clobber
             exit 0
           fi
-          gh release create "$RELEASE_TAG" --target "$RELEASE_SHA" --prerelease --title "Night Heist $RELEASE_TAG — Preview" --notes "Esqueleto técnico. APK debug para testes; gameplay pendente. Web ZIP e hashes incluídos." release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS
+          gh release create "$RELEASE_TAG" --target "$RELEASE_SHA" --prerelease --title "Night Heist $RELEASE_TAG — Preview" --notes "MVP jogável: quatro pavimentos, skill checks, câmeras, lasers, cofre e fuga. APK debug para testes. Web ZIP e hashes incluídos." release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS

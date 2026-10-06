@@ -143,6 +143,6 @@ func _integration(game: Node) -> void:
 	check(mission.alarms == alarms_before + 1, "Camera alarms beyond 0.5s continuous exposure")
 	level.activate(level.interactions[5])
 	check(mission.loot, "Vault interaction collects objective")
-	check(game.sound.streams.size() == 7, "Original audio cues loaded")
+	check(game.sound.streams.has("click") and game.sound.streams.has("step"), "Original audio cues loaded")
 	mission.return_to_spawn(true)
 	check(mission.status == "won", "Full objective sequence can win")

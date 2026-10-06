@@ -25,7 +25,7 @@ Testes validam regras de vitória/timeout, penalidade de alarme, bloqueio físic
 ## CI/CD
 
 - PR: importação, regressões do gameplay, smoke test, Web e APK.
-- Main: mesmas verificações + deploy GitHub Pages.
+- Main: mesmas verificações + deploy GitHub Pages + Release da versão de VERSION, após QA visual. Incremente VERSION para cada publicação.
 - Tag v*: Release de prévia com APK, Web ZIP e SHA256SUMS.
 - Manual em main: marque Publish a preview release after builds pass para publicar a versão de `VERSION` após testes/builds.
 
@@ -40,3 +40,9 @@ O viewport 1280×720 preserva a proporção, orientado a landscape. A janela do 
 - [Godot AudioStreamWAV](https://docs.godotengine.org/en/4.4/classes/class_audiostreamwav.html)
 - [Godot Web export](https://docs.godotengine.org/en/4.4/tutorials/export/exporting_for_web.html)
 - [Godot Android export](https://docs.godotengine.org/en/4.4/tutorials/export/exporting_for_android.html)
+
+## Versão 0.3.0 — menus e dispositivos
+
+Menu inicial, ajuda e configurações persistentes. Remapeie teclado/gamepad/mouse, ajuste zona morta, tamanho/opacidade do joystick e volumes. Perfil automático ou escolhido manualmente; navegação de menus por foco. Consulte [controles](docs/CONTROLS.md). Personagem com dez poses, áudio CC0 da Kenney e efeitos de passos/escada; ícones Web e Android próprios.
+
+CI executa também exports exclusivos de QA em Chromium/WebGL2 e Android API 29 x86_64. Artefatos `visual-web` e `visual-android` contêm capturas, relatórios e logs. Pages e Release dependem dessas verificações. A automação injeta eventos na interface nativa Godot e verifica mudanças de estado; não substitui teste físico de gamepad, multitouch em aparelho, desempenho ou escuta do áudio.

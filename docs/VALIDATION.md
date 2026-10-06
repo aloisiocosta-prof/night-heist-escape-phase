@@ -11,3 +11,12 @@ Ambiente: Godot 4.4.1 oficial, Linux; execução em 2026-10-06.
 Os testes movem o personagem por física nativa em trechos e reposicionam entre cenários independentes; não representam playtest humano integral. A captura visual não comprova reprodução audível. Controles multitouch, áudio em aparelho, desempenho Android e diferentes navegadores ainda precisam de playtest real.
 
 O ambiente de navegador remoto pode não disponibilizar WebGL 2; isso não substitui a validação nativa e não prova compatibilidade com todo dispositivo. APK é preview com assinatura debug.
+
+
+# Validação 0.3.0
+
+Godot 4.4.1: regressões do gameplay e controles (persistência, duplicatas, joystick, liberação e pausa) passaram localmente. O servidor headless não despacha ScreenTouch como o renderizador real; esse teste chama o callback nativo do joystick, e os exports de QA testam a rota completa de InputEvent.
+
+Capturas locais renderizadas com OpenGL/Mesa: menu, configurações de teclado/gamepad/touch, gameplay touch, skill check e pausa. A instrumentação envia eventos de mouse às posições calculadas pelos próprios Control, remapeia teclado/gamepad e verifica estado/posição/relógio. Não usa comparação de screenshot para inferir sucesso. Os exports de QA são separados da distribuição normal, marcados por custom feature visual_qa.
+
+CI exige Chromium com WebGL2 por SwiftShader e emulador Android API 29 x86_64; publica capturas e relatórios nos artefatos visual-web e visual-android. Os screenshots Android incluem o framebuffer real do emulador e a captura do viewport Godot. Testes não comprovam gamepad físico, multitouch em telefone, áudio audível ou desempenho de GPU real.

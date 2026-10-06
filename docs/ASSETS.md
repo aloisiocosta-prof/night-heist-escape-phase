@@ -27,3 +27,9 @@ godot --headless --path . --script tools/export_audio.gd
 Todo sprite, ícone, geometria e áudio foi criado no código deste repositório. Sem dependências de assets externos, sem download de conteúdo proprietário e sem exigência de plugins. As skills instaladas orientaram o processo; não foram adicionadas novas skills porque a especificação e as APIs nativas foram suficientes.
 
 Fontes: GDD fornecido §5–6; documentação Godot 4.4 sobre sprites, importação de imagens e AudioStreamWAV.
+
+## Atualização 0.3.0
+
+Spritesheet ampliado a dez slots 32×32: respiração idle, corrida, salto, agachamento, duas poses de escada e queda. Interface tem transições e feedback de foco; alarme colore o personagem temporariamente. Joystick analógico e quatro botões circulares substituem a fileira anterior de oito botões. Ícone de identidade vetorial, PNG 192/512 e camadas Android adaptativas 432; regenerar com `godot --headless --path . --script tools/export_icons.gd`.
+
+Interface Sounds 1.0, Kenney, 2020, CC0: `click_001.ogg` (clique), `open_001.ogg` (foco) e `confirmation_001.ogg` (desbloqueio). Origem: https://kenney.nl/assets/interface-sounds . ZIP oficial: https://kenney.nl/media/pages/assets/interface-sounds/fa43c1dd4d-1677589452/kenney_interface-sounds.zip . Licença original: `assets/audio/kenney/License.txt`. Sons procedurais adicionais: passos e escada; os efeitos procedurais originais deste projeto são disponibilizados sob CC0, conforme `assets/audio/LICENSE.txt`. Esses recursos não exigem bibliotecas de áudio externas.

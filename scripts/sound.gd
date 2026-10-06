@@ -8,7 +8,10 @@ var music := AudioStreamPlayer.new()
 var muted := false
 
 func _ready() -> void:
-	["jump", "switch", "unlock", "loot", "alarm", "win", "fail"].map(_make_effect)
+	["jump", "switch", "unlock", "loot", "alarm", "win", "fail", "step", "climb"].map(_make_effect)
+	streams["click"] = preload("res://assets/audio/kenney/click_001.ogg")
+	streams["hover"] = preload("res://assets/audio/kenney/open_001.ogg")
+	streams["unlock"] = preload("res://assets/audio/kenney/confirmation_001.ogg")
 	range(5).map(func(_i: int) -> void:
 		var voice := AudioStreamPlayer.new()
 		voice.volume_db = -14.0
@@ -42,7 +45,7 @@ func _exit_tree() -> void:
 	music.stream = null
 
 func _make_effect(cue: String) -> void:
-	var tones: Dictionary = {"jump": [220, 440], "switch": [440, 660], "unlock": [330, 440, 660], "loot": [523, 659, 784], "alarm": [880, 440, 880, 440], "win": [523, 659, 784, 1046], "fail": [330, 247, 165]}
+	var tones: Dictionary = {"jump": [220, 440], "switch": [440, 660], "unlock": [330, 440, 660], "loot": [523, 659, 784], "alarm": [880, 440, 880, 440], "win": [523, 659, 784, 1046], "fail": [330, 247, 165], "step": [90], "climb": [160, 200]}
 	streams[cue] = _wave(tones[cue], 0.11, false)
 
 func _make_music() -> AudioStreamWAV:
@@ -66,3 +69,7 @@ func _wave(notes: Array, duration: float, looped: bool) -> AudioStreamWAV:
 	stream.loop_mode = AudioStreamWAV.LOOP_FORWARD if looped else AudioStreamWAV.LOOP_DISABLED
 	stream.loop_end = notes.size() * count
 	return stream
+
+func set_volumes(music_level: float, effects_level: float) -> void:
+	music.volume_db = linear_to_db(maxf(music_level, 0.0001)) - 20.0
+	players.map(func(voice: AudioStreamPlayer) -> void: voice.volume_db = linear_to_db(maxf(effects_level, 0.0001)) - 10.0)

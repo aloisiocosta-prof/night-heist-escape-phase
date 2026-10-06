@@ -53,7 +53,9 @@ jobs:
           godot --headless --path . --editor --import 2>&1 | tee "$RUNNER_TEMP/import.log"
           if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' "$RUNNER_TEMP/import.log"; then exit 1; fi
       - name: Gameplay regression tests
-        run: godot --headless --path . --script tests/run_tests.gd
+        run: |
+          godot --headless --path . --script tests/run_tests.gd
+          godot --headless --path . --script tests/run_controls.gd
       - name: Smoke test scene
         shell: bash
         run: |
@@ -74,6 +76,10 @@ jobs:
           test -s build/web/index.pck
           test -s build/android/night-heist-preview.apk
           "$ANDROID_HOME/build-tools/34.0.0/apksigner" verify build/android/night-heist-preview.apk
+          godot --headless --path . --script tools/create_qa_exports.gd
+          mkdir -p build/qa-web build/qa-android
+          godot --headless --path . --export-release 'Web QA' build/qa-web/index.html
+          godot --headless --path . --export-debug 'Android QA' build/qa-android/night-heist-qa.apk
           touch build/web/.nojekyll
           cd build
           zip -r night-heist-web.zip web
@@ -86,13 +92,75 @@ jobs:
             build/night-heist-web.zip
             build/SHA256SUMS
           if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qa-builds
+          path: |
+            build/qa-web
+            build/qa-android
+          if-no-files-found: error
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           path: build/web
+  visual-web:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: qa-builds
+          path: build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test runtime
+        run: |
+          npm install --no-save playwright@1.51.1
+          npx playwright install --with-deps chromium
+      - name: Web interactions and screenshots
+        run: |
+          python3 -m http.server 8080 --directory build/qa-web > /tmp/heist-http.log 2>&1 &
+          node tools/web_visual_qa.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-web
+          path: build/visual-web
+  visual-android:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: qa-builds
+          path: build
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          target: default
+          profile: pixel_2
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none -camera-front none
+          disable-animations: false
+          script: bash tools/android_visual_qa.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-android
+          path: build/visual-android
   pages:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: build
+    needs: [build, visual-web, visual-android]
     runs-on: ubuntu-24.04
     permissions:
       pages: write
@@ -105,8 +173,8 @@ jobs:
       - uses: actions/deploy-pages@v4
         id: deployment
   release:
-    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish_release && github.ref == 'refs/heads/main')
-    needs: build
+    if: startsWith(github.ref, 'refs/tags/v') || (github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish_release)))
+    needs: [build, visual-web, visual-android]
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -127,7 +195,9 @@ jobs:
           RELEASE_TAG="v$(cat VERSION)"
           if [[ "$RELEASE_REF" == refs/tags/* ]]; then RELEASE_TAG="$RELEASE_REF_NAME"; fi
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            TAG_SHA="$(gh api "repos/$GH_REPO/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')"
+            if [[ "$TAG_SHA" != "$RELEASE_SHA" ]]; then echo 'Release tag already points to another commit; increment VERSION before publishing.'; exit 1; fi
             gh release upload "$RELEASE_TAG" release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS --clobber
             exit 0
           fi
-          gh release create "$RELEASE_TAG" --target "$RELEASE_SHA" --prerelease --title "Night Heist $RELEASE_TAG — Preview" --notes "MVP jogável: quatro pavimentos, skill checks, câmeras, lasers, cofre e fuga. APK debug para testes. Web ZIP e hashes incluídos." release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS
+          gh release create "$RELEASE_TAG" --target "$RELEASE_SHA" --prerelease --title "Night Heist $RELEASE_TAG — Preview" --notes "Menus e controles configuráveis: teclado, gamepad, mouse e joystick touch. Áudio CC0, dez poses e ícones próprios. Verificações visuais Web e Android aprovadas. APK debug para testes; Web ZIP e hashes incluídos." release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS

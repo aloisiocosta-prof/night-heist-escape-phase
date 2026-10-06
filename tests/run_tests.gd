@@ -80,6 +80,7 @@ func _integration(game: Node) -> void:
 	check(player.position.x < 390.0, "Locked entry door physically blocks movement")
 	game.begin_skill(level.interactions[1])
 	game.skill_phase = 0.5
+	check(game.skill_ui.get_parent() == game.ui, "Skill check must render above the level in the CanvasLayer")
 	game.confirm_skill()
 	check(level.interactions[1].open, "Skill check inside green interval opens door")
 	Input.action_press("right")

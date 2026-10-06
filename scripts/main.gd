@@ -5,6 +5,7 @@ var level := HeistLevel.new()
 var player := HeistPlayer.new()
 var sound := HeistSound.new()
 var ui := CanvasLayer.new()
+var skill_ui := Node2D.new()
 var timer_label := Label.new()
 var objective_label := Label.new()
 var prompt_label := Label.new()
@@ -25,13 +26,15 @@ func _ready() -> void:
 	add_child(player)
 	add_child(sound)
 	add_child(ui)
+	ui.add_child(skill_ui)
+	skill_ui.draw.connect(_draw_skill)
 	mission.finished.connect(_result)
 	mission.alerted.connect(func() -> void:
 		sound.play("alarm")
 		tip_remaining = 2.8)
 	_build_hud()
 	_show_overlay("NIGHT HEIST", "ESCAPE PHASE\n\nInvada quatro pavimentos, abra o cofre e volte à área verde.\nA fuga faz parte do roubo. Você tem 180 segundos.\n\nA/D ou ←/→: mover  ·  W/S ou ↑/↓: escadas\nEspaço: pular  ·  Shift: correr  ·  C: agachar\nE: interagir / skill check  ·  Esc: pausar\n\nOs botões na borda também aceitam toque.", "INICIAR INFILTRAÇÃO", start_run)
-	queue_redraw()
+	skill_ui.queue_redraw()
 
 func _setup_input() -> void:
 	var mapping := {"left": [KEY_A, KEY_LEFT], "right": [KEY_D, KEY_RIGHT], "up": [KEY_W, KEY_UP], "down": [KEY_S, KEY_DOWN], "jump": [KEY_SPACE], "crouch": [KEY_C], "run": [KEY_SHIFT], "interact": [KEY_E], "pause": [KEY_ESCAPE], "restart": [KEY_R]}
@@ -60,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		if skill_phase >= 1.0 or skill_phase <= 0.0:
 			skill_phase = clampf(skill_phase, 0.0, 1.0)
 			skill_direction *= -1.0
-	queue_redraw()
+	skill_ui.queue_redraw()
 
 func _process(_delta: float) -> void:
 	timer_label.text = "%02d:%02d" % [int(mission.remaining) / 60, int(mission.remaining) % 60]
@@ -235,11 +238,11 @@ func _show_overlay(title: String, body: String, primary: String, callback: Calla
 	button.pressed.connect(callback)
 	stack.add_child(button)
 
-func _draw() -> void:
+func _draw_skill() -> void:
 	if skill_target.is_empty():
 		return
-	draw_rect(Rect2(430, 235, 420, 90), Color("0b1425"))
-	draw_string(ThemeDB.fallback_font, Vector2(457, 258), "ARROMBAMENTO / E PARA CONFIRMAR", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color.WHITE)
-	draw_rect(Rect2(450, 278, 380, 22), Color("334155"))
-	draw_rect(Rect2(450 + 380 * 0.4, 278, 380 * 0.22, 22), HeistLevel.GREEN)
-	draw_line(Vector2(450 + 380 * skill_phase, 272), Vector2(450 + 380 * skill_phase, 307), Color.WHITE, 4)
+	skill_ui.draw_rect(Rect2(430, 235, 420, 90), Color("0b1425"))
+	skill_ui.draw_string(ThemeDB.fallback_font, Vector2(457, 258), "ARROMBAMENTO / E PARA CONFIRMAR", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color.WHITE)
+	skill_ui.draw_rect(Rect2(450, 278, 380, 22), Color("334155"))
+	skill_ui.draw_rect(Rect2(450 + 380 * 0.4, 278, 380 * 0.22, 22), HeistLevel.GREEN)
+	skill_ui.draw_line(Vector2(450 + 380 * skill_phase, 272), Vector2(450 + 380 * skill_phase, 307), Color.WHITE, 4)

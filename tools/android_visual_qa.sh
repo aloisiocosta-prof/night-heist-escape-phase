@@ -8,7 +8,7 @@ activity=$(adb shell cmd package resolve-activity --brief "$package" | tr -d '\r
 adb shell am start -n "$activity"
 for attempt in $(seq 1 90); do
   adb logcat -d > build/visual-android/logcat.txt
-  if rg -q 'QA_PASS|QA_FAIL' build/visual-android/logcat.txt; then break; fi
+  if grep -Eq 'QA_PASS|QA_FAIL' build/visual-android/logcat.txt; then break; fi
   sleep 2
 done
 adb exec-out uiautomator dump /dev/tty > build/visual-android/android-ui.xml || true
@@ -26,4 +26,4 @@ report=json.loads(Path('build/visual-android/report.json').read_text())
 print(report)
 assert report['passed'] and report['platform']=='Android'
 PY
-if rg -n 'FATAL EXCEPTION|QA_FAIL|SCRIPT ERROR:' build/visual-android/logcat.txt; then exit 1; fi
+if grep -En 'FATAL EXCEPTION|QA_FAIL|SCRIPT ERROR:|Program linking failed' build/visual-android/logcat.txt; then exit 1; fi

@@ -150,7 +150,7 @@ jobs:
           arch: x86_64
           target: default
           profile: pixel_2
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none -camera-front none
+          emulator-options: -no-window -gpu swangle -no-snapshot -noaudio -no-boot-anim -camera-back none -camera-front none
           disable-animations: false
           script: bash tools/android_visual_qa.sh
       - uses: actions/upload-artifact@v4

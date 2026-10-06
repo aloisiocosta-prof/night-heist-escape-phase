@@ -85,11 +85,11 @@ func _run() -> void:
 	touch.index = 0
 	touch.position = game.stick.get_global_transform_with_canvas() * (HeistVirtualStick.CENTER + Vector2(40, 0))
 	touch.pressed = true
-	Input.parse_input_event(touch)
-	await get_tree().create_timer(0.4).timeout
+	get_viewport().push_input(touch, true)
+	await get_tree().create_timer(1.0).timeout
 	touch = touch.duplicate()
 	touch.pressed = false
-	Input.parse_input_event(touch)
+	get_viewport().push_input(touch, true)
 	await get_tree().process_frame
 	_check(game.player.position.x > x + 15, "Virtual joystick moves native character")
 	_check(not Input.is_action_pressed("right"), "Touch release clears movement")

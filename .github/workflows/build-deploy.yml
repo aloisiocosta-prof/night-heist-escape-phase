@@ -13,8 +13,8 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: godot-${{ github.ref }}
-  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+  group: godot-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-24.04

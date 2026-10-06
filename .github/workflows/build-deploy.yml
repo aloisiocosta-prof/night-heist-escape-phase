@@ -5,6 +5,11 @@ on:
     tags: ['v*']
   pull_request:
   workflow_dispatch:
+    inputs:
+      publish_release:
+        description: Publish a preview release after builds pass
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -97,12 +102,13 @@ jobs:
       - uses: actions/deploy-pages@v4
         id: deployment
   release:
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish_release && github.ref == 'refs/heads/main')
     needs: build
     runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           name: release-files
@@ -111,6 +117,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-          RELEASE_TAG: ${{ github.ref_name }}
+          RELEASE_REF: ${{ github.ref }}
+          RELEASE_REF_NAME: ${{ github.ref_name }}
+          RELEASE_SHA: ${{ github.sha }}
         run: |
-          gh release create "$RELEASE_TAG" --verify-tag --prerelease --title "Night Heist $RELEASE_TAG — Preview" --notes "Esqueleto técnico. APK debug para testes; gameplay pendente. Web ZIP e hashes incluídos." release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS
+          RELEASE_TAG="v$(cat VERSION)"
+          if [[ "$RELEASE_REF" == refs/tags/* ]]; then RELEASE_TAG="$RELEASE_REF_NAME"; fi
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS --clobber
+            exit 0
+          fi
+          gh release create "$RELEASE_TAG" --target "$RELEASE_SHA" --prerelease --title "Night Heist $RELEASE_TAG — Preview" --notes "Esqueleto técnico. APK debug para testes; gameplay pendente. Web ZIP e hashes incluídos." release/android/night-heist-preview.apk release/night-heist-web.zip release/SHA256SUMS

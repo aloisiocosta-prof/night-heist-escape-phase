@@ -27,7 +27,7 @@ A compilação gera um dossiê de planejamento, sem resultados educacionais; o a
 
 ## Estudo selecionado
 
-[Protocolo GDD → jogo](protocol.md), [codebook](codebook.md) e [matriz de fidelidade](instruments/fidelity.csv) implementam o recorte autorizado, sem resultados preenchidos; [leads.csv](evidence/leads.csv) contém pistas internas que exigem conferência no GDD original.
+[Protocolo GDD → jogo](protocol.md), [codebook](codebook.md) e [matriz de fidelidade](instruments/fidelity.csv) implementam o recorte autorizado, com classificações estáticas preliminares pendentes de revisão humana; [leads.csv](evidence/leads.csv) contém pistas internas que exigem conferência no GDD original.
 
 ## Identificação
 
@@ -40,3 +40,5 @@ Dados fornecidos pelo usuário em 2026-10-08; registro estruturado em [metadata.
 - Localidade: Chapadinha Sul.
 - Cidade: Teresina.
 - Estado: Piauí.
+
+[GDD localizado e proveniência](evidence/gdd-source.md): versão interna 0.2 / V2, com seis unidades analisadas por inspeção estática.

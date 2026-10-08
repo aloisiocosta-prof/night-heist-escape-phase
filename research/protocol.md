@@ -20,7 +20,7 @@ Contribuição pretendida: procedimento auditável de rastreabilidade entre espe
 
 | Item | Situação | Tratamento |
 |---|---|---|
-| GDD discente original | Informado pelo usuário; não localizado nas buscas desta etapa | Solicitar arquivo exato, versão, datas e condições de uso |
+| GDD discente original | Localizado no Drive; identificação interna V2 / 0.2 | Leitura textual realizada; conferir bytes, hash e condições de uso |
 | Código do jogo | Baseline 72699f0c2752d029d8e8c3b48420c18a70dbe2a1 | Fixar baseline; mudanças posteriores são outro corpus |
 | DESIGN/BACKLOG/VALIDATION | Disponíveis | Fontes secundárias internas; não substituem GDD |
 | Conversas com agente | Não incorporadas ao corpus | Identificar registros originais; nunca reconstruir como transcrição |
@@ -47,4 +47,6 @@ A origem discente do GDD exige avaliação de direitos e enquadramento; não há
 
 Este protocolo contém concepção e método assistidos por IA; Educitec passa a **destino em reavaliação**, pois sua política restringe geração de conteúdo científico por IA, e revisão humana não deve ser apresentada como apagamento dessa proveniência ([política de IA](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicadeusodeia)).
 
-Resultados: **pendentes**; limitações previstas: caso único, ausência do GDD no corpus atual, possível incompletude de logs, viés do pesquisador envolvido, e impossibilidade de inferir aprendizagem ou superioridade da IA ([Prather et al., 2024](https://doi.org/10.1145/3632620.3671116)).
+Resultados: **análise inicial assistida por IA; revisão humana e execução pendentes**; limitações previstas: caso único, ausência de hash/paginação e de inspeção visual do PDF, possível incompletude de logs, viés do pesquisador envolvido, e impossibilidade de inferir aprendizagem ou superioridade da IA ([Prather et al., 2024](https://doi.org/10.1145/3632620.3671116)).
+
+Fonte localizada e seis unidades iniciais registradas em [gdd-source.md](evidence/gdd-source.md); seleção não exaustiva, sem medidas de aprendizagem.

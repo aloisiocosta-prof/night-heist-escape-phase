@@ -17,3 +17,7 @@ O GDD especifica quatro pavimentos, câmera com limiar superior a 0,5 s, saque e
 Duração de 180 s, penalidade de 8 s, cooldown de 3 s e desativação de segurança por 12 s são parâmetros encontrados no código sem valores explícitos correspondentes na leitura do GDD, classificados como complementação operacional pendente de confirmação, sem atribuir o decisor ([GDD](https://drive.google.com/file/d/1PSatYPYRYxb4pFmQwM0Lt-A4GYpDOkjc/view), [código](https://github.com/aloisiocosta-prof/night-heist-escape-phase/blob/72699f0c2752d029d8e8c3b48420c18a70dbe2a1/scripts/mission.gd)).
 
 A classificação de retorno como alterado registra a diferença literal entre ponto exato e raio de 30 px; a justificativa de usabilidade pode ser examinada posteriormente, sem converter divergência em defeito automaticamente ([GDD](https://drive.google.com/file/d/1PSatYPYRYxb4pFmQwM0Lt-A4GYpDOkjc/view), [código](https://github.com/aloisiocosta-prof/night-heist-escape-phase/blob/72699f0c2752d029d8e8c3b48420c18a70dbe2a1/scripts/main.gd)).
+
+## Incorporação ao dossiê
+
+O GDD é fonte primária referenciada em `latex/main.tex`, com inventário de conteúdo e seis unidades preliminares; duas tentativas de transferência de bytes retornaram HTTP 403, portanto nenhum original anexado nem hash calculado são declarados ([fonte](https://drive.google.com/file/d/1PSatYPYRYxb4pFmQwM0Lt-A4GYpDOkjc/view)).

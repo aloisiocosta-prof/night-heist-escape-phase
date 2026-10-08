@@ -17,9 +17,9 @@ Os critérios editoriais desta sequência derivam das [diretrizes](https://siste
 
 ## Recorte implementado
 
-Problema, pergunta, objetivos, corpus e método propostos estão em [protocol.md](protocol.md), com categorias em [codebook.md](codebook.md) e matriz ainda vazia em [fidelity.csv](instruments/fidelity.csv).
+Problema, pergunta, objetivos, corpus e método propostos estão em [protocol.md](protocol.md), com categorias em [codebook.md](codebook.md) e matriz preliminar em [fidelity.csv](instruments/fidelity.csv).
 
-A autorização do usuário para implementar o recorte não comprova elegibilidade editorial, aprovação ética ou resultados; o GDD original e a revisão intelectual permanecem necessários ([protocolo](protocol.md)).
+A autorização do usuário para implementar o recorte não comprova elegibilidade editorial, aprovação ética ou resultados; o GDD foi lido textualmente; bytes/hash e revisão intelectual permanecem necessários ([protocolo](protocol.md)).
 
 ## Literatura inicial verificável
 

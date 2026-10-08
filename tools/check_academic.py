@@ -36,3 +36,12 @@ for row in units:
     if row['evidence_status'] == 'executed':
         assert row['evidence_path'], 'Executed evidence requires a record'
 print('PASS: required documents, evidence IDs, local sources and planning status')
+
+# O corpus próprio é identificado no método, sem fundamentação circular na bibliografia.
+article_refs = (ROOT / 'latex/sections/09-references.tex').read_text()
+demo_refs = (ROOT / 'latex/demo/references.tex').read_text()
+assert 'NIGHT HEIST.' not in article_refs and 'SOUSA,' not in article_refs
+assert 'corpus2026' not in demo_refs
+assert '\\bibitem{artefato}' not in tex and '\\bibitem{gddoriginal}' not in tex
+assert (ROOT / 'research/evidence/latex-reference-validation.md').is_file()
+print('PASS: bibliography excludes own corpus; external-reference validation recorded')

@@ -19,3 +19,7 @@ O usuário determinou a suspensão das condições da revista-alvo nesta etapa, 
 ## Atualização de organização e demonstração
 
 Em 8 out. 2026, o pedido de busca de templates resultou em [comparação de fontes](../templates/README.md), separação do artigo em metadados e seções e apresentação compartilhada em `latex/style-abnt.tex`. O conteúdo dos achados do artigo não foi ampliado; a demonstração utiliza U01, U04 e U05, já registrados na matriz. Margens e entrelinhas são adaptação gráfica declarada, sem conformidade integral presumida com normas ausentes ou revista-alvo. Resumos, quadros e referências recebem espaço simples, e o corpo do texto usa entrelinhas 1,5 conforme requisito registrado na [auditoria](standards-audit.md).
+
+## Correção de referências próprias
+
+Por instrução do pesquisador, foram retiradas as autocitações bibliográficas ao projeto, à matriz e ao GDD de autoria dos integrantes. O método identifica essas fontes como corpus, e os resultados mantêm unidades e localizadores verificáveis. A existência e leitura das fontes externas sobre LaTeX/ABNT são registradas em `latex-reference-validation.md`, distinguindo evidência técnica de literatura científica. Esta correção não adicionou dados ou revisão humana às classificações.

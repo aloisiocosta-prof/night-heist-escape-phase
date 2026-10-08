@@ -6,6 +6,7 @@
 \usepackage{lmodern,geometry,hyperref,booktabs,longtable}
 \geometry{left=3cm,right=2cm,top=3cm,bottom=2cm}
 \hypersetup{hidelinks}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\a\do\b\do\c\do\d\do\e\do\f}
 \setlength{\emergencystretch}{3em}
 \title{Night Heist: dossiê documental para projeto acadêmico científico}
 \author{\small ENZO EMANUEL BATISTA DE SOUSA\\\small FRANCISCO ANTONIO CARDOSO RIBEIRO\\\small GABRIEL SILVA SOARES\\\small JUAN RANGEL FERREIRA DA SILVA\\\small RAFAEL ASSUNÇÃO SANTOS\\[0.8em]\small Orientador: Aloisio de Araújo Costa Magalhães\\\small Curso: Análise e Desenvolvimento de Sistemas\\\small Unidade Escolar Lucas Meireles Alves\\\small Chapadinha Sul -- Teresina -- Piauí}
@@ -13,13 +14,15 @@
 \begin{document}
 \maketitle
 \noindent\textbf{Estado: pesquisa em planejamento; documento de trabalho, sem submissão.}
+\section*{Identificação do corpus}
+O código examinado corresponde ao baseline \nolinkurl{72699f0c2752d029d8e8c3b48420c18a70dbe2a1}. O GDD fornecido pelo usuário é tratado como fonte primária do corpus, identificado pelo nome do arquivo e pela versão interna na seção correspondente. Os documentos de pesquisa produzidos neste projeto são instrumentos próprios; não integram a bibliografia como validação do próprio estudo.
 \section*{Escopo documental}
-O repositório contém um jogo em Godot/GDScript com regras de missão, testes e exportações previstas para Web e Android, conforme os arquivos do baseline auditado \cite{artefato}.
-A documentação organiza a preparação acadêmica, preservando a diferença entre testes técnicos e resultados educacionais, estes ainda não estabelecidos no material inspecionado \cite{artefato}.
+O repositório contém um jogo em Godot/GDScript com regras de missão, testes e exportações previstas para Web e Android, conforme os arquivos do baseline auditado.
+A documentação organiza a preparação acadêmica, preservando a diferença entre testes técnicos e resultados educacionais, estes ainda não estabelecidos no material inspecionado.
 
 \section*{Inventário técnico}
-O módulo \texttt{scripts/mission.gd} define duração de 180 segundos, penalidade de alarme de 8 segundos e vitória condicionada ao saque e retorno, enquanto \texttt{tests/run\_tests.gd} contém casos de regressão \cite{artefato}.
-A leitura documental não representa nova execução dos testes nem avaliação de aprendizagem com estudantes \cite{artefato}.
+O módulo \texttt{scripts/mission.gd} define duração de 180 segundos, penalidade de alarme de 8 segundos e vitória condicionada ao saque e retorno, enquanto \texttt{tests/run\_tests.gd} contém casos de regressão.
+A leitura documental não representa nova execução dos testes nem avaliação de aprendizagem com estudantes.
 
 \section*{Antecedente temático para leitura humana}
 Lelli, Santos e Castelo Branco apresentam práticas de ensino de verificação e validação de software, constituindo uma referência temática que não valida este jogo ou seu uso no contexto local \cite{lelli2024}.
@@ -34,44 +37,43 @@ O usuário autorizou o recorte de rastreabilidade entre GDD discente e implement
 A pergunta proposta é como as decisões documentadas se traduzem em comportamento executável e quais divergências ou decisões adicionais aparecem, sem resposta empírica nesta etapa \cite{requisitos2025}.
 O objetivo proposto é analisar correspondência e ambiguidades por análise documental e verificação técnica, preservando versão, localizadores e justificativas \cite{gdd2023,requisitos2025}.
 O instrumento distingue preservação, implementação parcial, alteração, omissão, adição e impossibilidade de verificação; essas categorias são operacionais propostas, sem validação como escala \cite{gdd2023}.
-O GDD original foi incorporado como fonte documental por leitura textual no Google Drive, com seis unidades iniciais registradas na matriz; os relatos internos de design permanecem fontes auxiliares \cite{gddoriginal}.
+O GDD original foi incorporado como fonte documental por leitura textual no Google Drive, com seis unidades iniciais registradas na matriz; os relatos internos de design permanecem fontes auxiliares.
 Nenhum resultado de aprendizagem é inferido do jogo pronto, considerando a distinção entre conclusão de tarefas e competência discutida por Prather et al. \cite{prather2024}.
 \section*{GDD original incorporado ao corpus}
-A fonte é o arquivo \emph{GDD -- Night Heist Escape Phase (Versão 0).pdf}, com identificador documentado em \path{research/evidence/gdd-source.md}, cujo conteúdo informa V2, versão 0.2, MVP sem grade descendente; ambas as identificações são preservadas \cite{gddoriginal}.
-A autoria discente é informada pelo usuário e os cinco autores estão identificados na abertura deste dossiê; o texto retornado pelo Drive não individualiza a autoria das decisões \cite{gddoriginal}.
-O documento descreve quatro pavimentos, infiltração, coleta do cofre e fuga, temporizador, arrombamento por zona verde, câmeras, lasers, switches, movimentação, arquitetura, paleta e backlog com seis requisitos \cite{gddoriginal}.
-A leitura disponível é textual, localizada por seções; os bytes originais não puderam ser transferidos para este ambiente, de modo que hash, paginação e inspeção visual do mockup permanecem pendentes \cite{gddoriginal}.
-O arquivo original pode ser acessado pela referência ao Drive; este PDF contém a análise documental, sem reproduzir o original como anexo \cite{gddoriginal}.
+A fonte é o arquivo \emph{GDD -- Night Heist Escape Phase (Versão 0).pdf}, com identificador documentado em \path{research/evidence/gdd-source.md}, cujo conteúdo informa V2, versão 0.2, MVP sem grade descendente; ambas as identificações são preservadas.
+A autoria discente é informada pelo usuário e os cinco autores estão identificados na abertura deste dossiê; o texto retornado pelo Drive não individualiza a autoria das decisões.
+O documento descreve quatro pavimentos, infiltração, coleta do cofre e fuga, temporizador, arrombamento por zona verde, câmeras, lasers, switches, movimentação, arquitetura, paleta e backlog com seis requisitos.
+A leitura disponível é textual, localizada por seções; os bytes originais não puderam ser transferidos para este ambiente, de modo que hash, paginação e inspeção visual do mockup permanecem pendentes.
+O arquivo original pode ser acessado pela referência ao Drive; este PDF contém a análise documental, sem reproduzir o original como anexo.
 
 \section*{Matriz preliminar de fidelidade}
-As classificações abaixo resultam de seis unidades selecionadas e inspeção estática do baseline, com revisão humana pendente; não representam cobertura exaustiva nem comportamento recém-executado \cite{gddoriginal,artefato}.
+As classificações abaixo resultam de seis unidades selecionadas e inspeção estática do baseline, com revisão humana pendente; não representam cobertura exaustiva nem comportamento recém-executado.
 \begin{longtable}{p{0.08\textwidth}p{0.29\textwidth}p{0.49\textwidth}}
 \toprule
-Unidade & GDD / localizador & Inspeção e classificação preliminar \\
+ID & GDD / localizador & Resultado preliminar \\
 \midrule
-U01 & Quatro pavimentos, seção 2 & Preservado: quatro valores em \texttt{HeistLevel.FLOORS} \cite{gddoriginal,artefato}. \\
-U02 & Falha por tempo esgotado, M-01 & Preservado: \texttt{HeistMission.tick} termina a missão sem sucesso ao zerar \cite{gddoriginal,artefato}. \\
-U03 & Exposição superior a 0,5 s, M-03 & Preservado: \texttt{sensor\_tick} aplica o limiar de 0,5 s \cite{gddoriginal,artefato}. \\
-U04 & Retorno ao ponto exato, seções 1.1 e 3.1 & Alterado na leitura literal: \texttt{main.gd} aceita distância inferior a 30 px \cite{gddoriginal,artefato}. \\
-U05 & Duração da missão, M-01 & Fidelidade numérica não verificável: GDD não fornece duração; código adota 180 s \cite{gddoriginal,artefato}. \\
-U06 & Terminal de hack, seção 2 & Fidelidade de efeito/duração não verificável: código desativa segurança por 12 s, sem parametrização explícita no GDD \cite{gddoriginal,artefato}. \\
+U01 & Quatro pavimentos, seção 2 & Preservado: quatro valores em \texttt{HeistLevel.FLOORS}. \\
+U02 & Falha por tempo esgotado, M-01 & Preservado: \texttt{HeistMission.tick} termina a missão sem sucesso ao zerar. \\
+U03 & Exposição superior a 0,5 s, M-03 & Preservado: \texttt{sensor\_tick} aplica o limiar de 0,5 s. \\
+U04 & Retorno ao ponto exato, seções 1.1 e 3.1 & Alterado na leitura literal: \texttt{main.gd} aceita distância inferior a 30 px. \\
+U05 & Duração da missão, M-01 & Fidelidade numérica não verificável: GDD não fornece duração; código adota 180 s. \\
+U06 & Terminal de hack, seção 2 & Fidelidade de efeito/duração não verificável: código desativa segurança por 12 s, sem parametrização explícita no GDD. \\
 \bottomrule
 \end{longtable}
-A tolerância do spawn é divergência de especificação, sem juízo automático de defeito; os parâmetros adicionais são decisões operacionais que requerem proveniência, sem atribuição do decisor por inferência \cite{gddoriginal,artefato}.
+A tolerância do spawn é divergência de especificação, sem juízo automático de defeito; os parâmetros adicionais são decisões operacionais que requerem proveniência, sem atribuição do decisor por inferência.
 Nenhum percentual global ou resultado de aprendizagem é calculado com essas unidades selecionadas \cite{prather2024}.
 
 \section*{Enquadramento ético e editorial}
 A origem discente do GDD exige avaliação das condições de uso, direitos e enquadramento, sem dispensa automática de CEP declarada \cite{cns2016}.
 Por decisão do usuário em 8 de outubro de 2026, as condições da revista-alvo estão suspensas nesta etapa de desenvolvimento; sua política permanece registrada para eventual submissão futura \cite{ia}.
-Resultados, revisão intelectual, autorizações pertinentes e licença geral permanecem pendentes \cite{ia,cns2016,artefato}.
+Resultados, revisão intelectual, autorizações pertinentes e licença geral permanecem pendentes \cite{ia,cns2016}.
 
 \section*{Transparência e direitos}
 ChatGPT/Codex auxiliou a leitura do repositório, busca de políticas, organização documental e automação deste dossiê, devendo o uso ser declarado e avaliado à luz da política editorial \cite{ia}.
 A assistência à concepção, ao método, à análise e à redação é declarada; a autorização para desenvolver o trabalho não equivale à aceitação por uma revista ou à conformidade com sua política \cite{ia}.
-O baseline não contém licença geral do código, sendo necessária uma decisão do titular antes de declarar o conjunto como software open source \cite{artefato}.
+O baseline não contém licença geral do código, sendo necessária uma decisão do titular antes de declarar o conjunto como software open source.
 
 \begin{thebibliography}{9}
-\bibitem{artefato} NIGHT HEIST. Repositório e arquivos técnicos. Baseline 72699f0c2752d029d8e8c3b48420c18a70dbe2a1, 2026. \url{https://github.com/aloisiocosta-prof/night-heist-escape-phase/tree/72699f0c2752d029d8e8c3b48420c18a70dbe2a1}.
 \bibitem{lelli2024} LELLI, V.; SANTOS, I. S.; CASTELO BRANCO, K. S. Uso de Práticas Gamificadas no Ensino de Verificação e Validação de Software. EDUCOMP, 2024. DOI: \url{https://doi.org/10.5753/educomp.2024.237525}.
 \bibitem{diretrizes} EDUCITEC. Diretrizes para autores. Política vigente consultada em 8 out. 2026. \url{https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/Diretrizes}.
 \bibitem{acesso} EDUCITEC. Política de acesso aberto e copyright. Consultada em 8 out. 2026. \url{https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicasacessoabertoecopyright}.
@@ -80,6 +82,5 @@ O baseline não contém licença geral do código, sendo necessária uma decisã
 \bibitem{requisitos2025} QUEIROZ, F. K.; LIMA, M. S. Uso do ChatGPT na Priorização de Requisitos: Uma Experiência Educacional em Engenharia de Software. EDUCOMP, 2025. \url{https://doi.org/10.5753/educomp.2025.5370}.
 \bibitem{prather2024} PRATHER et al. The Widening Gap: The Benefits and Harms of Generative AI for Novice Programmers. ICER, 2024. \url{https://doi.org/10.1145/3632620.3671116}.
 \bibitem{cns2016} CONSELHO NACIONAL DE SAÚDE. Resolução 510, de 7 de abril de 2016. Art. 1. \url{https://bvsms.saude.gov.br/bvs/saudelegis/cns/2016/res0510_07_04_2016.html}.
-\bibitem{gddoriginal} AUTORES DISCENTES INFORMADOS NA ABERTURA. Game Design Document -- Night Heist: Escape Phase V2. Versão interna 0.2; nome do arquivo: GDD -- Night Heist Escape Phase (Versão 0).pdf. 2026. Fonte primária fornecida pelo usuário, leitura textual em 8 out. 2026. \url{https://drive.google.com/file/d/1PSatYPYRYxb4pFmQwM0Lt-A4GYpDOkjc/view}.
 \end{thebibliography}
 \end{document}

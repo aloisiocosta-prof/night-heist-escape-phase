@@ -49,3 +49,7 @@ Resumo e abstract são parágrafos únicos com 100–250 palavras, e as palavras
 A assistência de IA é declarada nos documentos; condições da revista-alvo permanecem suspensas nesta etapa, sem submissão ou release científico final ([proveniência](../evidence/manuscript-provenance.md); [decisão editorial](../venue.md)).
 
 O pacote contém apenas os fontes próprios e esta documentação, sem cópias dos PDFs normativos privados ou arquivos de terceiros; o reconhecimento ao abnTeX2 refere-se à referência estrutural consultada, e não à redistribuição de sua classe ([auditoria](../evidence/standards-audit.md); [CTAN e licença do abnTeX2](https://ctan.org/pkg/abntex2)).
+
+## Referências externas validadas
+
+A [conferência de existência, acesso e leitura](../evidence/latex-reference-validation.md) distingue código/PDF lido, metadados lidos e normas cuja íntegra permanece pendente. A bibliografia não inclui o próprio estudo, o protocolo ou a matriz como autoridade externa; o corpus é descrito no método e nos localizadores dos achados. O modelo canônico foi lido no código completo e no PDF de seis páginas, com identificação v1.9.7 de 2018, e não apenas por uma descrição em catálogo.

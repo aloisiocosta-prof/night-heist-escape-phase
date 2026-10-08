@@ -1,6 +1,6 @@
 # Night Heist — projeto acadêmico científico
 
-Estado: `pesquisa-em-planejamento`; responsável indicado: Aloisio; revista-alvo condicional: Educitec; versão científica: sem release aprovado ([decisão](../docs/decisoes/2026-10-08-enquadramento.md)).
+Estado: `pesquisa-em-planejamento`; responsável indicado: Aloisio; destino editorial: Educitec em reavaliação; versão científica: sem release aprovado ([decisão](../docs/decisoes/2026-10-08-enquadramento.md)).
 
 O artefato auditado é um jogo Godot 4.4.1/GDScript, com exportações Web e Android, regras de missão e testes automatizados; a transformação acadêmica documenta esse artefato e organiza o trabalho científico humano sem substituir a implementação existente ([auditoria](evidence/repository-audit.md)).
 
@@ -24,3 +24,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/academic late
 ```
 
 A compilação gera um dossiê de planejamento, sem resultados educacionais; o arquivo editorial definitivo dependerá do template oficial e da elaboração científica humana ([Educitec, diretrizes](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/Diretrizes)).
+
+## Estudo selecionado
+
+[Protocolo GDD → jogo](protocol.md), [codebook](codebook.md) e [matriz de fidelidade](instruments/fidelity.csv) implementam o recorte autorizado, sem resultados preenchidos; [leads.csv](evidence/leads.csv) contém pistas internas que exigem conferência no GDD original.

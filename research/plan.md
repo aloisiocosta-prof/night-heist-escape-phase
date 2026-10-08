@@ -1,6 +1,6 @@
 # Plano de execução científica humana
 
-Este plano organiza entregas e lacunas, sem formular hipótese, interpretar dados ou declarar eficácia do jogo, respeitando a [política de IA da Educitec](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicadeusodeia).
+Este plano organiza entregas e lacunas, com protocolo assistido por IA e sem interpretar dados ou declarar eficácia do jogo, respeitando a [política de IA da Educitec](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicadeusodeia).
 
 | Etapa | Responsável | Entrega | Aceitação |
 |---|---|---|---|
@@ -15,17 +15,11 @@ Este plano organiza entregas e lacunas, sem formular hipótese, interpretar dado
 
 Os critérios editoriais desta sequência derivam das [diretrizes](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/Diretrizes); as tarefas técnicas derivam da [auditoria do software](evidence/repository-audit.md).
 
-## Registro do problema — preencher por Aloisio
+## Recorte implementado
 
-- Situação educacional observada e fonte: **pendente**.
-- Problema e pergunta delimitada: **pendente**.
-- Objetivo geral e objetivos específicos: **pendentes**.
-- Tipo de pesquisa, unidades de análise e critérios: **pendentes**.
-- Instrumentos e plano de análise: **pendentes**.
-- Contribuição científica pretendida: **pendente**.
-- Aprovação ética/institucional ou justificativa aplicável: **pendente**.
+Problema, pergunta, objetivos, corpus e método propostos estão em [protocol.md](protocol.md), com categorias em [codebook.md](codebook.md) e matriz ainda vazia em [fidelity.csv](instruments/fidelity.csv).
 
-Nenhum campo vazio representa aprovação, dado coletado ou resultado; a restrição está registrada na [decisão de enquadramento](../docs/decisoes/2026-10-08-enquadramento.md).
+A autorização do usuário para implementar o recorte não comprova elegibilidade editorial, aprovação ética ou resultados; o GDD original e a revisão intelectual permanecem necessários ([protocolo](protocol.md)).
 
 ## Literatura inicial verificável
 

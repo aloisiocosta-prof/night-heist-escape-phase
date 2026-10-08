@@ -1,0 +1,4 @@
+lead_id,topic,internal_source,implementation_locator,verification_status
+L01,Duração e penalidade,docs/DESIGN.md,scripts/mission.gd,requires_original_gdd
+L02,Saque e retorno,docs/BACKLOG.md,scripts/mission.gd,requires_original_gdd
+L03,Controles e plataformas,docs/CONTROLS.md,export_presets.cfg,requires_original_gdd

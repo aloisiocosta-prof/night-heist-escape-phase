@@ -7,6 +7,8 @@ required = [
     'latex/main.tex', 'research/README.md', 'research/venue.md',
     'research/plan.md', 'research/evidence/repository-audit.md',
     'LICENSE-POLICY.md', 'docs/decisoes/2026-10-08-enquadramento.md',
+    'research/protocol.md', 'research/codebook.md',
+    'research/instruments/fidelity.csv',
 ]
 for name in required:
     assert (ROOT / name).is_file(), f'Missing: {name}'
@@ -21,4 +23,16 @@ assert any(row['kind'] == 'educational_result' and row['status'] == 'not_establi
 tex = (ROOT / 'latex/main.tex').read_text()
 assert 'pesquisa em planejamento' in tex
 assert '\\bibitem{lelli2024}' in tex
+with (ROOT / 'research/instruments/fidelity.csv').open(newline='') as stream:
+    reader = csv.DictReader(stream)
+    assert {'unit_id', 'gdd_locator', 'classification', 'evidence_status', 'human_review'} <= set(reader.fieldnames)
+    units = list(reader)
+assert len({row['unit_id'] for row in units}) == len(units), 'Duplicate analysis units'
+for row in units:
+    assert row['classification'] in {'preserved', 'partial', 'altered', 'omitted', 'added', 'unverifiable'}
+    assert row['human_review'] in {'pending', 'reviewed', 'disputed'}
+    if row['classification'] != 'unverifiable':
+        assert row['gdd_locator'] and row['rationale'], 'Classification lacks documentary basis'
+    if row['evidence_status'] == 'executed':
+        assert row['evidence_path'], 'Executed evidence requires a record'
 print('PASS: required documents, evidence IDs, local sources and planning status')

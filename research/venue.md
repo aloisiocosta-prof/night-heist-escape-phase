@@ -33,3 +33,7 @@ Esta matriz resume as [diretrizes oficiais](https://sistemascmc.ifam.edu.br/educ
 - Baixar e aplicar o template oficial ao manuscrito humano final; este dossiê LaTeX não se declara template Educitec ([templates](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/template)).
 
 “Open access” qualifica o artigo; a licença do software é uma decisão independente, registrada em [LICENSE-POLICY.md](../LICENSE-POLICY.md).
+
+## Atualização após escolha do recorte
+
+Educitec está em reavaliação, pois concepção e protocolo agora incluem assistência de IA; não declarar compatibilidade automática ou autoria exclusivamente humana, conforme [política editorial](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicadeusodeia).

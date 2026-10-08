@@ -1,0 +1,9 @@
+id,claim,source,kind,status
+E01,Projeto Godot e GDScript,project.godot,repository,inspected
+E02,Regra de vitória exige cofre e retorno,scripts/mission.gd,repository,inspected
+E03,Testes técnicos presentes,tests/run_tests.gd,repository,not_rerun
+E04,Relatos anteriores de QA,docs/VALIDATION.md,historical_report,not_rerun
+E05,Eficácia educacional,none,educational_result,not_established
+E06,Taxas Educitec zero,https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/Diretrizes,official_policy,verified_2026-10-08
+E07,Artigo Educitec CC BY 4.0,https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicasacessoabertoecopyright,official_policy,verified_2026-10-08
+E08,Licença geral do software,LICENSE-POLICY.md,rights_decision,pending_owner

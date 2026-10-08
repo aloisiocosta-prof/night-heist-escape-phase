@@ -1,5 +1,11 @@
 # Night Heist: Escape Phase
 
+## Projeto acadêmico científico
+
+O repositório possui uma [estrutura de pesquisa em planejamento](research/README.md), com auditoria documental, registro de evidências, dossiê LaTeX e CI de compilação; a revista-alvo condicional é Educitec, cuja gratuidade e licença de acesso aberto foram verificadas em fontes oficiais ([validação editorial](research/venue.md)).
+
+A elaboração científica humana, elegibilidade autoral e licença geral do software permanecem pendentes; o estágio atual não declara eficácia educacional, submissão editorial ou TCC aprovado ([plano](research/plan.md), [direitos](LICENSE-POLICY.md)).
+
 MVP jogável de stealth/platformer 2D em Godot 4.4.1 e GDScript nativo, baseado no GDD versão 0.2.
 
 ## Jogar

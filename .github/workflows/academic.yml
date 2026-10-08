@@ -22,10 +22,13 @@ jobs:
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/academic latex/main.tex
       - name: Compile documentary article
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/article latex/article.tex
+      - name: Compile article demonstration
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/demo latex/demo.tex
       - uses: actions/upload-artifact@v4
         with:
           name: academic-documents
           path: |
             build/academic/main.pdf
             build/article/article.pdf
+            build/demo/demo.pdf
           if-no-files-found: error

@@ -15,3 +15,7 @@ Data: 8 de outubro de 2026. Documento: `latex/article.tex`. O manuscrito desenvo
 ChatGPT/Codex auxiliou a seleção do recorte, organização do protocolo, leitura do corpus, classificação preliminar, redação e compilação. As classificações permanecem com `human_review=pending`. Autoria, contribuições individuais e revisão intelectual final devem ser conferidas pelos autores e orientador. O agente não integra a lista de autores.
 
 O usuário determinou a suspensão das condições da revista-alvo nesta etapa, conforme [venue.md](../venue.md). O manuscrito não declara aceitação editorial, revisão por pares ou aprovação ética. A conclusão se limita às correspondências e lacunas documentais observadas e não atribui competências ou experiências aos discentes.
+
+## Atualização de organização e demonstração
+
+Em 8 out. 2026, o pedido de busca de templates resultou em [comparação de fontes](../templates/README.md), separação do artigo em metadados e seções e apresentação compartilhada em `latex/style-abnt.tex`. O conteúdo dos achados do artigo não foi ampliado; a demonstração utiliza U01, U04 e U05, já registrados na matriz. Margens e entrelinhas são adaptação gráfica declarada, sem conformidade integral presumida com normas ausentes ou revista-alvo. Resumos, quadros e referências recebem espaço simples, e o corpo do texto usa entrelinhas 1,5 conforme requisito registrado na [auditoria](standards-audit.md).

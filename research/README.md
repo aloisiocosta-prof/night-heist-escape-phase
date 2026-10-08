@@ -54,3 +54,11 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/article latex
 ```
 
 A base normativa é consultada no repositório privado; seus PDFs não são redistribuídos no repositório público. O artigo mantém a identificação fornecida pelo usuário e declara a assistência de IA, a amostragem piloto e a necessidade de conferência humana das classificações ([metadata](metadata.json); [matriz](instruments/fidelity.csv)).
+
+## Modelo demonstrativo de artigo
+
+A [comparação dos modelos e instruções de uso](templates/README.md) registra as fontes primárias consultadas, a atualização normativa e os limites de conformidade; o [modelo demonstrativo](../latex/demo.tex) compartilha a apresentação com o artigo, com arquivos separados de metadados e seções ([auditoria](evidence/standards-audit.md)).
+
+```bash
+latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/demo latex/demo.tex
+```

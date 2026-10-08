@@ -25,7 +25,7 @@ Verificação: 2026-10-08; seleção condicional, sem submissão realizada ([dec
 
 Esta matriz resume as [diretrizes oficiais](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/Diretrizes) e a [política de acesso](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicasacessoabertoecopyright); taxas zero não eliminam os requisitos de autoria e método.
 
-## Pendências impeditivas
+## Requisitos históricos para eventual submissão
 
 - Confirmar a titulação de Aloisio e a elegibilidade da composição de autoria; não inserir coautor honorário ([diretrizes](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/Diretrizes)).
 - Elaborar cientificamente problema, método, análises e conclusões por pesquisadores humanos: a revista proíbe geração desses conteúdos por IA e exige declaração dos usos auxiliares ([política de IA](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicadeusodeia)).
@@ -37,3 +37,7 @@ Esta matriz resume as [diretrizes oficiais](https://sistemascmc.ifam.edu.br/educ
 ## Atualização após escolha do recorte
 
 Educitec está em reavaliação, pois concepção e protocolo agora incluem assistência de IA; não declarar compatibilidade automática ou autoria exclusivamente humana, conforme [política editorial](https://sistemascmc.ifam.edu.br/educitec/index.php/educitec/politicadeusodeia).
+
+## Decisão vigente: condições editoriais suspensas
+
+Em 2026-10-08, o usuário autorizou o desenvolvimento do projeto e do artigo sem aplicar, nesta etapa, as condições da revista-alvo. As exigências acima permanecem como registro histórico e não bloqueiam redação, análise assistida por IA ou a composição de cinco autores. Não há submissão realizada nem declaração de conformidade com Educitec. A assistência do agente à concepção, análise documental e redação deve ser explicitada no manuscrito. Evidências, autoria humana declarada e limites dos resultados permanecem registrados em [protocolo](protocol.md) e [metadata](metadata.json).

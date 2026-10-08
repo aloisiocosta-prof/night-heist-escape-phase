@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 required = [
-    'latex/main.tex', 'research/README.md', 'research/venue.md',
+    'latex/main.tex', 'latex/article.tex', 'research/evidence/standards-audit.md', 'research/evidence/manuscript-provenance.md', 'research/README.md', 'research/venue.md',
     'research/plan.md', 'research/evidence/repository-audit.md',
     'LICENSE-POLICY.md', 'docs/decisoes/2026-10-08-enquadramento.md',
     'research/protocol.md', 'research/codebook.md',

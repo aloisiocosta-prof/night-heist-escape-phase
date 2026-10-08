@@ -1,4 +1,4 @@
-name: Academic dossier
+name: Academic documents
 on:
   pull_request:
     paths: ['latex/**', 'research/**', 'docs/**', 'LICENSE-POLICY.md', 'tools/check_academic.py', '.github/workflows/academic.yml']
@@ -20,8 +20,12 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y latexmk texlive-latex-recommended texlive-fonts-recommended texlive-lang-portuguese
       - name: Compile planning dossier
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/academic latex/main.tex
+      - name: Compile documentary article
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/article latex/article.tex
       - uses: actions/upload-artifact@v4
         with:
-          name: academic-planning-dossier
-          path: build/academic/main.pdf
+          name: academic-documents
+          path: |
+            build/academic/main.pdf
+            build/article/article.pdf
           if-no-files-found: error

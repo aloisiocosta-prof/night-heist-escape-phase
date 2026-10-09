@@ -23,3 +23,7 @@ Em 8 out. 2026, o pedido de busca de templates resultou em [comparação de font
 ## Correção de referências próprias
 
 Por instrução do pesquisador, foram retiradas as autocitações bibliográficas ao projeto, à matriz e ao GDD de autoria dos integrantes. O método identifica essas fontes como corpus, e os resultados mantêm unidades e localizadores verificáveis. A existência e leitura das fontes externas sobre LaTeX/ABNT são registradas em `latex-reference-validation.md`, distinguindo evidência técnica de literatura científica. Esta correção não adicionou dados ou revisão humana às classificações.
+
+## Reformulação dos dois entregáveis
+
+O modelo demonstrativo agora apresenta o conteúdo científico do estudo, sem tutorial de LaTeX no corpo. A NBR 6022:2018 foi efetivamente consultada em fonte institucional UFRB e seu item 6.1 orienta o espaçamento simples do artigo. O dossiê foi refeito com capa, identificação, sumário, problema, objetivos, corpus, protocolo, piloto e extração de nove documentos. O nono foi recuperado como edição pública IBGE de 1993; a leitura completa é registrada, sem comparação binária ao PDF privado. Somente esses dois documentos integram os entregáveis e a CI vigentes.

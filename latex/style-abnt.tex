@@ -2,30 +2,21 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \babelprovide[main,import]{portuguese}
-\usepackage{lmodern,geometry,hyperref,booktabs,longtable,array,setspace,indentfirst}
+\usepackage{mathptmx,geometry,hyperref,booktabs,longtable,array,setspace,indentfirst,titlesec,fancyhdr}
 \usepackage[protrusion=true,expansion=true,nopatch=footnote]{microtype}
-\geometry{left=3cm,right=2cm,top=3cm,bottom=2cm}
+\geometry{a4paper,left=3cm,right=2cm,top=3cm,bottom=2cm}
 \hypersetup{hidelinks}
 \expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\a\do\b\do\c\do\d\do\e\do\f}
 \setlength{\emergencystretch}{4em}
 \setlength{\parindent}{1.25cm}
 \setlength{\parskip}{0pt}
-\onehalfspacing
+\singlespacing
+\titleformat{\section}{\normalsize\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.5\baselineskip}{\baselineskip}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
 \AtBeginDocument{\renewcommand{\tablename}{Quadro}}
-
-% NBR 14724:2024 como adaptação gráfica; artigo não recebe capa/sumário de TCC.
-% Ambiente compacto para resumos, quadros e referências (espaço simples).
+\pagestyle{fancy}\fancyhf{}\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}\setlength{\headheight}{14pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[R]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
 \newenvironment{resumotexto}{\begin{singlespace}\noindent}{\end{singlespace}}
-% Cabeçalho compacto de artigo: não cria capa nem página de rosto.
-\makeatletter
-\renewcommand{\maketitle}{%
-  \begin{center}
-  {\Large\bfseries\@title\par}
-  \vspace{0.8em}
-  {\small\setstretch{1}\@author\par}
-  \vspace{0.5em}
-  {\small\@date\par}
-  \end{center}
-  \vspace{0.7em}
-}
-\makeatother

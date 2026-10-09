@@ -20,8 +20,6 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y latexmk texlive-latex-recommended texlive-fonts-recommended texlive-lang-portuguese
       - name: Compile planning dossier
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/academic latex/main.tex
-      - name: Compile documentary article
-        run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/article latex/article.tex
       - name: Compile article demonstration
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/demo latex/demo.tex
       - uses: actions/upload-artifact@v4
@@ -29,6 +27,5 @@ jobs:
           name: academic-documents
           path: |
             build/academic/main.pdf
-            build/article/article.pdf
             build/demo/demo.pdf
           if-no-files-found: error

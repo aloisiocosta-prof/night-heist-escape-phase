@@ -1,0 +1,59 @@
+\section{DELIMITAÇÃO DA PESQUISA}
+O estudo examina a relação entre o Game Design Document (GDD) produzido pelos discentes e o código do jogo Night Heist: Escape Phase, cuja implementação foi atribuída a um agente ChatGPT pelo responsável pelo projeto. A unidade de análise é a decisão de design documentada em relação a um critério observável no código. Não se pretende avaliar individualmente os estudantes nem deduzir aprendizagem a partir do jogo pronto.
+
+O problema é a tradução de requisitos textuais para condições executáveis. Uma especificação pode estabelecer um objetivo, como retornar ao ponto inicial, sem definir uma tolerância espacial. A implementação precisa concretizar esse detalhe, mas a presença do parâmetro no código não demonstra quem o decidiu ou se houve aprovação humana. A relevância do estudo é tornar essa tradução auditável, distinguindo especificação explícita, escolha operacional e falta de informação.
+
+O uso educacional de IA exige distinguir a conclusão de uma tarefa e a competência individual; Prather et al. (2024) apresentam evidências que justificam essa cautela. A experiência de priorização de requisitos relatada por Queiroz e Lima (2025) fornece contexto para examinar o uso de ChatGPT em tarefas de engenharia de software, sem validar os resultados deste caso.
+
+\subsection{Pergunta de pesquisa}
+Como as decisões explicitadas no GDD discente se relacionam com a implementação do Night Heist e quais correspondências, divergências e lacunas de especificação podem ser documentadas por inspeção estática?
+
+\subsection{Objetivo geral e objetivos específicos}
+O objetivo geral é analisar a rastreabilidade entre a especificação discente e a implementação assistida por IA. Os objetivos específicos são: identificar unidades comparáveis no GDD; definir critérios observáveis; localizar sua implementação; classificar a correspondência; registrar ambiguidades e limites de atribuição; e indicar verificações necessárias para confirmar o comportamento em execução.
+
+\subsection{Contribuição delimitada}
+A contribuição disponível é uma matriz de comparação acompanhada de localizadores, justificativas e estado de revisão. Seu potencial é apoiar a gestão do design e a revisão de especificações em projetos assistidos por IA. Não se afirma originalidade absoluta, superioridade do agente, qualidade global do jogo ou eficácia pedagógica, pois essas conclusões exigiriam evidências adicionais (Prather et al., 2024).
+
+\section{CORPUS E PROVENIÊNCIA}
+O corpus primário contém o GDD fornecido pelo usuário e os arquivos do baseline técnico identificado pelo commit \nolinkurl{72699f0c2752d029d8e8c3b48420c18a70dbe2a1}. O GDD tem nome de arquivo \emph{GDD -- Night Heist Escape Phase (Versão 0).pdf}, mas identifica internamente V2, versão 0.2, MVP sem grade descendente. As duas identificações são conservadas sem supor que representem versões idênticas.
+
+A leitura disponível do GDD é textual, com localizadores por seção e mecânica. Seus bytes, hash, paginação e apresentação visual não foram verificados. O arquivo é acessível pela referência de origem \url{https://drive.google.com/file/d/1PSatYPYRYxb4pFmQwM0Lt-A4GYpDOkjc/view}, conforme as permissões da fonte. O GDD é material analisado, não referência bibliográfica usada para legitimar o próprio estudo.
+
+A implementação auditada utiliza Godot/GDScript. Os módulos \texttt{mission.gd}, \texttt{level.gd} e \texttt{main.gd} representam regras de missão, ambiente, sensores e integração. A documentação de design e os testes existentes são fontes auxiliares; a existência de testes não comprova sua execução recente. Nenhuma execução nova de Godot foi realizada nesta análise.
+
+\section{PROTOCOLO DOCUMENTAL}
+A abordagem é um estudo documental de caso único, com seleção intencional de seis unidades para um piloto de classificação. A seleção contempla regras explícitas, uma divergência literal e parâmetros ausentes na especificação. Ela não constitui amostra probabilística nem cobertura integral do documento.
+
+Cada registro contém: identificador; localizador do GDD; critério; localizador do código; classificação; ambiguidade; responsável pela decisão, quando demonstrável; evidência técnica; justificativa; e estado de revisão humana. As categorias são preservado, parcial, alterado, omitido, adicionado e não verificável. São regras operacionais do estudo e não uma escala previamente validada.
+
+O procedimento registra primeiro o enunciado e o critério, depois a evidência no código e sua interpretação. Parâmetro ausente no GDD não é classificado automaticamente como erro ou funcionalidade ausente. A categoria adicionado exige verificar a ausência de correspondente no documento completo. A responsabilidade individual não é inferida do fato de o jogo ter sido programado por um agente.
+
+\section{EVIDÊNCIAS PILOTO}
+O Quadro 1 sintetiza os seis registros disponíveis. Todos decorrem de inspeção estática e mantêm revisão humana pendente. As categorias expressam correspondência ao critério da unidade, sem validar a experiência completa do jogador.
+
+\begin{singlespace}
+\begin{longtable}{|p{0.06\textwidth}|p{0.27\textwidth}|p{0.56\textwidth}|}
+\caption{Síntese do piloto documental.}\\\hline
+ID & Especificação & Evidência e interpretação \\\hline\endfirsthead
+\multicolumn{3}{r}{\footnotesize Continuação do Quadro 1}\\\hline
+ID & Especificação & Evidência e interpretação \\\hline\endhead
+U01 & Quatro pavimentos, seção 2 & Quatro valores em \texttt{FLOORS}; preservado para a cardinalidade.\\\hline
+U02 & Falha por tempo esgotado, M-01 & \texttt{tick} termina a missão sem sucesso quando o tempo zera; preservado para a condição lógica.\\\hline
+U03 & Exposição superior a 0,5 s, M-03 & \texttt{sensor\_tick} usa o limiar de 0,5 s; preservado para o limiar.\\\hline
+U04 & Retorno ao ponto exato, seções 1.1 e 3.1 & A integração aceita distância inferior a 30 px; alterado na leitura literal, sem juízo de defeito.\\\hline
+U05 & Duração da missão, M-01 & Código define 180 s; GDD não fornece valor; fidelidade numérica não verificável.\\\hline
+U06 & Terminal de hack, seção 2 & Código desativa segurança por 12 s; GDD não parametriza o efeito; fidelidade de efeito e duração não verificável.\\\hline
+\end{longtable}
+\noindent\footnotesize Fonte: elaboração dos autores a partir do corpus identificado na seção 2; registros U01--U06, com revisão humana pendente.
+\end{singlespace}
+
+A interpretação mais relevante é a distinção entre divergência explícita e insuficiência de especificação. A tolerância de retorno pode ser uma escolha de usabilidade, mas essa hipótese não foi confirmada por registro original. A duração da missão e do hack não pode ser julgada fiel numericamente quando o GDD não fornece um valor de referência. Não foram calculados percentuais globais de fidelidade.
+
+\section{REVISÃO, DIREITOS E CONTINUIDADE}
+A origem escolar do GDD demanda conferência das condições de uso e do enquadramento da pesquisa. A ausência de questionários não estabelece, por si só, dispensa de avaliação ética. Este dossiê não declara aprovação, dispensa institucional ou coleta autorizada de resultados educacionais (Brasil, 2016).
+
+A concepção, a classificação preliminar e a redação receberam assistência de ChatGPT/Codex. A autoria humana e o orientador foram informados pelo usuário, e a revisão intelectual ainda está pendente. A assistência do agente não é ocultada nem convertida em autoria bibliográfica. As condições específicas da revista-alvo estão suspensas nesta etapa por decisão do pesquisador; não houve submissão.
+
+O baseline não contém licença geral que permita declarar todo o jogo como software open source. A licença do software é independente da licença de publicação do artigo. Uma decisão explícita sobre direitos e materiais de terceiros continua necessária antes de licenciar o conjunto.
+
+A continuidade compreende quatro entregas verificáveis: conferir a identidade e os bytes do GDD; revisar as seis classificações e justificar mudanças; ampliar a extração às demais regras; e executar testes de comportamento com ambiente, versão e resultados registrados. Uma futura investigação de aprendizagem requer outro desenho e evidências próprias; não pode ser obtida retrospectivamente da matriz técnica (Prather et al., 2024).

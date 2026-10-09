@@ -27,3 +27,7 @@ As localizações internas e hashes dos PDFs efetivamente recuperados estão em 
 ## Falhas de acesso e rotas efetivas
 
 O navegador de pesquisa não conseguiu recuperar a URL raw do GitHub; o código completo foi lido pela conexão GitHub. O link genérico `mirrors.ctan.org` redirecionou para espelho indisponível na ferramenta; o PDF do espelho CTAN da Universidade de Washington foi aberto e lido. Essas falhas não foram rotuladas como inexistência da fonte. Páginas de artigos da SBC apresentaram timeout nesta conferência; essa nova tentativa não foi registrada como nova leitura integral desses artigos.
+
+## Estado vigente após nova leitura
+
+A NBR 6022:2018 foi lida no PDF institucional da UFRB (https://www2.ufrb.edu.br/bcet/images/NBR_6022-2018.pdf), especialmente seções 5 e 6; seu estado passa de identificação de edição para leitura textual. A edição IBGE de 1993 foi obtida do site oficial e lida em texto integral, preservando a distinção entre essa cópia pública e o arquivo privado. As limitações anteriores de acesso ficam como histórico de tentativas. A conferência integral da NBR 6023:2025 permanece pendente.

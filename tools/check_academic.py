@@ -21,8 +21,8 @@ for row in rows:
         assert (ROOT / source).is_file(), f'Broken source: {source}'
 assert any(row['kind'] == 'educational_result' and row['status'] == 'not_established' for row in rows)
 tex = (ROOT / 'latex/main.tex').read_text()
-assert 'pesquisa em planejamento' in tex
-assert '\\bibitem{lelli2024}' in tex
+assert 'pesquisa em planejamento' in tex.lower()
+assert 'PRATHER' in (ROOT / 'latex/dossier/references.tex').read_text()
 with (ROOT / 'research/instruments/fidelity.csv').open(newline='') as stream:
     reader = csv.DictReader(stream)
     assert {'unit_id', 'gdd_locator', 'classification', 'evidence_status', 'human_review'} <= set(reader.fieldnames)
@@ -42,6 +42,8 @@ article_refs = (ROOT / 'latex/sections/09-references.tex').read_text()
 demo_refs = (ROOT / 'latex/demo/references.tex').read_text()
 assert 'NIGHT HEIST.' not in article_refs and 'SOUSA,' not in article_refs
 assert 'corpus2026' not in demo_refs
+assert 'NIGHT HEIST.' not in (ROOT / 'latex/demo/research-references.tex').read_text()
+assert (ROOT / 'research/evidence/nine-pdf-reading.json').is_file()
 assert '\\bibitem{artefato}' not in tex and '\\bibitem{gddoriginal}' not in tex
 assert (ROOT / 'research/evidence/latex-reference-validation.md').is_file()
 print('PASS: bibliography excludes own corpus; external-reference validation recorded')

@@ -58,3 +58,7 @@ SHA-256 calculados nos bytes recuperados; não houve confronto automatizado com 
 | 12225 | `aacafb7975cd05e4f8e086071aad6c3e8d975446e317c061075d6e5fc6658206` |
 
 Os PDFs privados permaneceram fora do repositório público. A entrada IBGE vazia produzida por tentativa malsucedida foi descartada; não se associa hash de arquivo vazio a esse documento.
+
+## Revisão que substitui as limitações de leitura anteriores
+
+Na reformulação dos dois entregáveis, a edição pública do IBGE de 1993 foi obtida e lida integralmente (60 páginas, com texto extraído); o arquivo público não foi comparado binariamente ao arquivo privado. A NBR 6022:2018 foi lida no PDF institucional UFRB, complementando o conjunto privado. Assim, as afirmações anteriores de ausência de leitura dessas duas fontes deixam de descrever o estado vigente. A leitura, origem e hashes dos nove arquivos estão em `nine-pdf-reading.json`, e o dossiê apresenta a extração sintetizada. O artigo passa a usar espaço simples conforme NBR 6022, e o dossiê conserva espaço 1,5 por aplicação da NBR 14724. A NBR 6023:2025 ainda não foi confrontada integralmente.

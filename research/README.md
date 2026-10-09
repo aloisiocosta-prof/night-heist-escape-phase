@@ -62,3 +62,7 @@ A [comparação dos modelos e instruções de uso](templates/README.md) registra
 ```bash
 latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/demo latex/demo.tex
 ```
+
+## Entregáveis vigentes: artigo demonstrativo e dossiê
+
+A entrega vigente contém apenas `latex/demo.tex` (modelo de artigo científico sobre a pesquisa) e `latex/main.tex` (dossiê). O pipeline gera somente esses dois PDFs. A estrutura do artigo segue a NBR 6022:2018 agora lida em fonte institucional, com espaçamento simples; a extração dos nove documentos e os limites de conformidade ficam no dossiê ([organização](templates/README.md); [registro de leitura](evidence/nine-pdf-reading.json)).

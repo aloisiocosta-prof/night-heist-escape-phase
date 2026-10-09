@@ -1,5 +1,6 @@
 extends Node2D
 ## Native Godot composition: mission rules, character physics, level, UI, and sound.
+## game novo
 var mission := HeistMission.new()
 var level := HeistLevel.new()
 var player := HeistPlayer.new()

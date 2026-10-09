@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://c2lkdjc3rwo8o"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1"]
+[ext_resource type="Script" uid="uid://cne1cjcuho4tg" path="res://scripts/main.gd" id="1"]
 
-[node name="NightHeist" type="Node2D"]
+[node name="NightHeist" type="Node2D" unique_id=660668850]
 script = ExtResource("1")

@@ -1,0 +1,37 @@
+\section{Resultados documentais preliminares}
+\subsection{Correspondências explícitas}
+A unidade U01 relaciona a descrição de quatro pavimentos, na seção 2 do GDD, à lista \texttt{FLOORS} de \texttt{scripts/level.gd}; a lista contém quatro valores, sustentando a classificação preservado para a cardinalidade da estrutura. Esse resultado não avalia disposição visual, acessibilidade entre pavimentos ou fidelidade de todos os elementos do cenário, pois esses aspectos não integram o critério da unidade.
+
+Na unidade U02, a regra M-01 estabelece falha por esgotamento do temporizador, e o método \texttt{tick} de \texttt{scripts/mission.gd} termina a missão sem sucesso quando o tempo restante chega a zero. A correspondência estática sustenta a classificação preservado para a condição lógica inspecionada, sem confirmar por execução a atualização do temporizador ou sua apresentação na interface.
+
+Na unidade U03, a regra M-03 fixa exposição superior a 0,5 segundo como gatilho de alerta, e \texttt{sensor\_tick} contém a condição de exposição superior a esse limiar. A coincidência do valor e do operador sustenta a classificação preservado, mas a leitura estática não verifica geometria do cone, detecção de colisões ou estabilidade temporal em execução.
+
+\subsection{Divergência literal no retorno}
+A unidade U04 compara a referência ao retorno ao ponto exato de início, nas seções 1.1 e 3.1, com a condição espacial utilizada em \texttt{main.gd} e encaminhada à missão. O código aceita distância inferior a 30 pixels, enquanto o enunciado literal do GDD não explicita esse raio; o registro foi classificado como alterado.
+
+A classificação identifica uma diferença entre especificação textual e regra implementada, sem concluir que a tolerância seja inadequada. A expressão ponto exato pode ter sido empregada de forma informal pelo designer, e um raio pode constituir uma interpretação aceitável, mas nenhuma dessas hipóteses foi tratada como decisão confirmada no corpus. Uma revisão humana poderá manter a classificação literal, reconhecer ambiguidade lexical ou registrar mudança aprovada, desde que preserve a evidência e a justificativa da revisão.
+
+\subsection{Parâmetros sem especificação suficiente}
+A unidade U05 examina a duração da missão: o GDD prevê temporizador, mas não fornece duração numérica no trecho lido; o código adota 180 segundos. A fidelidade numérica foi classificada como não verificável por falta de parâmetro, pois não existe valor explícito de referência para confirmar ou contradizer o valor implementado.
+
+A unidade U06 examina o terminal de hack mencionado no pavimento 2: o código desativa a segurança por 12 segundos, mas o GDD lido não parametriza esse efeito e sua duração. Também nesse caso, o registro não verificável expressa insuficiência de especificação, e não ausência de implementação ou comprovação de erro.
+
+A distinção entre uma função mencionada e seus parâmetros é central nesses dois registros: o comportamento não é inteiramente alheio ao GDD, mas contém concretizações que o texto disponível não permite comparar numericamente. Por isso, o piloto não classificou automaticamente essas unidades como adicionadas, categoria que exigiria verificar a ausência de correspondente no GDD completo.
+
+\begin{singlespace}
+\begin{longtable}{p{0.07\textwidth}p{0.25\textwidth}p{0.34\textwidth}p{0.20\textwidth}}
+\caption{Síntese das seis unidades selecionadas.}\label{tab:results}\\
+\toprule ID & GDD e critério & Evidência estática & Classificação \\\midrule\endfirsthead
+\toprule ID & GDD e critério & Evidência estática & Classificação \\\midrule\endhead
+U01 & Seção 2: quatro pavimentos & \texttt{level.gd:FLOORS}: quatro valores & Preservado\\
+U02 & M-01: tempo zerado implica falha & \texttt{mission.gd:tick}: termina sem sucesso & Preservado\\
+U03 & M-03: exposição superior a 0,5 s & \texttt{level.gd:sensor\_tick}: limiar correspondente & Preservado\\
+U04 & Seções 1.1 e 3.1: ponto exato inicial & \texttt{main.gd}: distância inferior a 30 px & Alterado, leitura literal\\
+U05 & M-01: temporizador sem duração numérica & \texttt{mission.gd:DURATION}: 180 s & Não verificável\\
+U06 & Seção 2: terminal de hack sem efeito parametrizado & \texttt{level.gd:\_hack}: segurança desativada por 12 s & Não verificável\\
+\bottomrule
+\multicolumn{4}{p{0.93\textwidth}}{\footnotesize Fonte: GDD  e matriz do projeto . Todos os registros: inspeção estática, responsável desconhecido e revisão humana pendente.}\\
+\end{longtable}
+\end{singlespace}
+
+Não foram calculados percentuais globais de fidelidade ou qualidade, pois as seis unidades constituem seleção intencional e não o conjunto de requisitos do GDD. O quadro apresenta ocorrências do piloto e não permite concluir ausência das demais categorias no jogo completo.

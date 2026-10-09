@@ -1,0 +1,45 @@
+\documentclass[12pt,a4paper]{article}
+\input{latex/style-abnt.tex}
+\usepackage{tocloft}
+\onehalfspacing
+\renewcommand{\contentsname}{SUMÁRIO}
+\renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{\baselineskip}
+\begin{document}
+\begin{titlepage}
+\centering
+\textbf{UNIDADE ESCOLAR LUCAS MEIRELES ALVES}\\
+\textbf{CURSO DE ANÁLISE E DESENVOLVIMENTO DE SISTEMAS}\par
+\vspace{2cm}
+ENZO EMANUEL BATISTA DE SOUSA\\
+FRANCISCO ANTONIO CARDOSO RIBEIRO\\
+GABRIEL SILVA SOARES\\
+JUAN RANGEL FERREIRA DA SILVA\\
+RAFAEL ASSUNÇÃO SANTOS\par
+\vfill
+\textbf{NIGHT HEIST: DOSSIÊ DA PESQUISA DOCUMENTAL SOBRE RASTREABILIDADE ENTRE DESIGN E IMPLEMENTAÇÃO POR IA}
+\vfill
+Teresina -- Piauí\\2026
+\end{titlepage}
+\thispagestyle{empty}
+\begin{center}
+ENZO EMANUEL BATISTA DE SOUSA\\FRANCISCO ANTONIO CARDOSO RIBEIRO\\GABRIEL SILVA SOARES\\JUAN RANGEL FERREIRA DA SILVA\\RAFAEL ASSUNÇÃO SANTOS
+\vspace{2cm}
+\textbf{NIGHT HEIST: DOSSIÊ DA PESQUISA DOCUMENTAL SOBRE RASTREABILIDADE ENTRE DESIGN E IMPLEMENTAÇÃO POR IA}
+\end{center}
+\vspace{1.5cm}
+\hfill\begin{minipage}{0.55\textwidth}
+\singlespacing
+Dossiê de planejamento, evidências e normalização do estudo documental desenvolvido no curso de Análise e Desenvolvimento de Sistemas, Unidade Escolar Lucas Meireles Alves. Pesquisa em planejamento, com análise piloto e revisão humana pendente.\\[1em]
+Orientador: Aloisio de Araújo Costa Magalhães.\\[1em]
+Localidade: Chapadinha Sul, Teresina, Piauí.
+\end{minipage}
+\vfill\begin{center}Teresina -- Piauí\\2026\end{center}
+\clearpage\renewcommand{\contentsname}{SUMÁRIO}\tocloftpagestyle{empty}\tableofcontents\thispagestyle{empty}
+\clearpage
+\input{latex/dossier/research.tex}
+\input{latex/dossier/norms.tex}
+\input{latex/dossier/references.tex}
+\end{document}

@@ -1,0 +1,65 @@
+[
+  {
+    "norma": "6028",
+    "arquivo_lido": "6028-Resumo-atualizada-em-18.05.2021-.pdf",
+    "paginas_pdf": 7,
+    "sha256": "a2833ca28f27e96b186e9d2187bd40a2311b6cd8bb99d98a68ab2ed4c26279e1",
+    "origem": "PDF fornecido no repositório privado"
+  },
+  {
+    "norma": "6023",
+    "arquivo_lido": "ABNT-NBR-6023-Referencias-Bibliograficas.pdf",
+    "paginas_pdf": 74,
+    "sha256": "dd5730ab40f693cacfb553521fb566e4a3269e0675832eacd4fe7aa6d0e8d447",
+    "origem": "PDF fornecido no repositório privado"
+  },
+  {
+    "norma": "6024",
+    "arquivo_lido": "ABNT-NBR-6024.pdf",
+    "paginas_pdf": 8,
+    "sha256": "ac8a2ea58e23c880c7df346f438fc369ba3efb31a79ff5854fb445dea9e3520f",
+    "origem": "PDF fornecido no repositório privado"
+  },
+  {
+    "norma": "6027",
+    "arquivo_lido": "ABNT-NBR-6027.pdf",
+    "paginas_pdf": 7,
+    "sha256": "153864c501e0b7d431e591194ea3b6e899a258433743989fde9da06f494528ff",
+    "origem": "PDF fornecido no repositório privado"
+  },
+  {
+    "norma": "6034",
+    "arquivo_lido": "ABNT-NBR-6034.pdf",
+    "paginas_pdf": 8,
+    "sha256": "72abe9235895aa01947e669572ec0e1b09c2528207c46156c300b6243eb55f06",
+    "origem": "PDF fornecido no repositório privado"
+  },
+  {
+    "norma": "14724",
+    "arquivo_lido": "ABNT_NBR_14724_2024-1.pdf",
+    "paginas_pdf": 16,
+    "sha256": "b26b55f576f6be75ee36288aab3f0bd831720ec526fa0681af2ccb5b24db89d4",
+    "origem": "PDF fornecido no repositório privado"
+  },
+  {
+    "norma": "10520",
+    "arquivo_lido": "Abnt_nbr_10520_2023.pdf",
+    "paginas_pdf": 23,
+    "sha256": "e7e5372accf526ffc6ab232173aa545a5bb0c29d47f41b55b55362a9a62fe70a",
+    "origem": "PDF fornecido no repositório privado"
+  },
+  {
+    "norma": "12225",
+    "arquivo_lido": "NBR-2012225-LOMBADA.pdf",
+    "paginas_pdf": 7,
+    "sha256": "aacafb7975cd05e4f8e086071aad6c3e8d975446e317c061075d6e5fc6658206",
+    "origem": "PDF fornecido no repositório privado"
+  },
+  {
+    "norma": "IBGE",
+    "arquivo_lido": "IBGE-publico-1993.pdf",
+    "paginas_pdf": 60,
+    "sha256": "b56bf78c260fcf732bb650d306efe8e0bf65e9f71fc74da376ceb5c31594d0a0",
+    "origem": "IBGE público, edição equivalente; sem comparação binária ao privado"
+  }
+]

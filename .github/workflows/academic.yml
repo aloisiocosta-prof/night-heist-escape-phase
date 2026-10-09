@@ -1,0 +1,31 @@
+name: Academic documents
+on:
+  pull_request:
+    paths: ['latex/**', 'research/**', 'docs/**', 'LICENSE-POLICY.md', 'tools/check_academic.py', '.github/workflows/academic.yml']
+  push:
+    branches: [main]
+    paths: ['latex/**', 'research/**', 'docs/**', 'LICENSE-POLICY.md', 'tools/check_academic.py', '.github/workflows/academic.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dossier:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check documentary invariants
+        run: python3 tools/check_academic.py
+      - name: Install LaTeX
+        run: sudo apt-get update && sudo apt-get install -y latexmk texlive-latex-recommended texlive-fonts-recommended texlive-lang-portuguese
+      - name: Compile planning dossier
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/academic latex/main.tex
+      - name: Compile article demonstration
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/demo latex/demo.tex
+      - uses: actions/upload-artifact@v4
+        with:
+          name: academic-documents
+          path: |
+            build/academic/main.pdf
+            build/demo/demo.pdf
+          if-no-files-found: error

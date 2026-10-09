@@ -1,0 +1,19 @@
+\section{Discussão}
+\subsection{O que a rastreabilidade permite observar}
+Os registros U01--U03 mostram que critérios relativamente delimitados podem receber correspondência documental clara, desde que o resultado seja restrito ao aspecto efetivamente inspecionado. O achado útil é a possibilidade de apontar onde a cardinalidade, a condição de falha e o limiar aparecem no código, evitando uma avaliação genérica de que o jogo seguiu o GDD.
+
+O registro U04 demonstra que uma condição aparentemente simples exige explicitar a interpretação adotada pelo analista: igualdade espacial e proximidade são regras diferentes, embora possam cumprir a mesma intenção de design. Preservar o trecho do GDD, o critério literal e o limiar do código permite revisar a classificação sem apagar a evidência inicial.
+
+Os registros U05 e U06 tornam visível o limite do documento para verificar parâmetros implementados; a categoria não verificável impede afirmar fidelidade numérica quando o número não foi especificado. Esse resultado orienta a gestão de requisitos do próprio projeto, porque identifica perguntas concretas a serem resolvidas e registradas, como duração pretendida e alcance da desativação da segurança.
+
+\subsection{Implicações para design e gestão do desenvolvimento}
+No contexto deste caso, o GDD pode ser revisto para distinguir regras essenciais, parâmetros negociáveis e exemplos de implementação, preservando a versão original como fonte histórica. Essa recomendação decorre dos casos observados, sobretudo da diferença entre regra funcional e parametrização, sem alegar eficácia geral de um formato de GDD.
+
+A gestão do desenvolvimento pode utilizar uma decisão documentada por alteração, contendo requisito de origem, motivo, responsável comprovado e versão afetada; o instrumento já contém campos compatíveis com esse registro. Um raio de retorno aprovado, por exemplo, passaria a ter uma justificativa explícita em vez de permanecer apenas como valor no código.
+
+A literatura sobre priorização de requisitos com ChatGPT oferece um antecedente para examinar a participação da IA em atividades de engenharia de software, mas o presente piloto focaliza correspondência pós-implementação e não priorização (Queiroz; Lima, 2025). Essa delimitação permite formular uma contribuição estreita e verificável, sem reivindicar uma nova metodologia educacional a partir de um único caso.
+
+\subsection{Relevância educacional possível e seus limites}
+A matriz pode integrar uma atividade de leitura de requisitos, comparação com código e revisão de decisões, porque organiza questões concretas do projeto, mas essa possibilidade constitui proposta de uso e não resultado de aprendizagem. A análise poderia apoiar discussão sobre responsabilidade de design e justificativa de parâmetros sem exigir, no escopo atual, medir a competência individual dos autores.
+
+O cuidado em separar proposta de resultado é compatível com as questões levantadas por Prather et al. (2024) sobre assistência generativa e programadores iniciantes. Para sustentar uma conclusão educacional futura, seriam necessários desenho, evidências e enquadramento específicos; o jogo pronto e a matriz documental não substituem essas condições (Prather et al., 2024; Brasil, 2016).
